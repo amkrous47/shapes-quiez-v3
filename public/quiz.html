@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبار - تعليم الأشكال</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- شريط النقاط العلوي -->
+    <nav class="navbar navbar-dark bg-primary sticky-top shadow-sm">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h5">
+                ⭐ النقاط: <span id="score" class="fw-bold text-warning">0</span>
+            </span>
+            <button class="btn btn-light btn-sm" onclick="location.href='index.html'">
+                ← الرئيسية
+            </button>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <!-- صورة الشكل -->
+                <div class="card mb-4 shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="shape-image-container">
+                            <img 
+                                id="shapeImage" 
+                                src="" 
+                                alt="صورة الشكل" 
+                                class="img-fluid rounded"
+                                style="max-height: 400px; object-fit: contain;"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نموذج الإجابة -->
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">
+                            ❓ ما اسم هذا الشكل؟
+                        </h5>
+                        
+                        <!-- حقل الإدخال -->
+                        <div class="input-group mb-3 input-group-lg">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="answerInput" 
+                                placeholder="اكتب اسم الشكل هنا..."
+                                autocomplete="off"
+                            >
+                            <button 
+                                class="btn btn-primary fw-bold" 
+                                onclick="checkAnswer()"
+                                id="checkBtn"
+                            >
+                                ✓ تحقق
+                            </button>
+                        </div>
+
+                        <!-- رسالة الخطأ -->
+                        <div id="errorMessage" class="alert alert-danger d-none fade show" role="alert">
+                            <strong>❌ خطأ!</strong> الإجابة غير صحيحة. حاول مرة أخرى!
+                        </div>
+
+                        <!-- رسالة النجاح -->
+                        <div id="successMessage" class="alert alert-success d-none fade show" role="alert">
+                            <strong>✅ صحيح!</strong> +1 نقطة 🎉
+                        </div>
+
+                        <!-- الأزرار الإضافية -->
+                        <div class="d-grid gap-2 d-sm-flex mt-4">
+                            <button 
+                                class="btn btn-outline-info flex-grow-1" 
+                                onclick="showHint()"
+                            >
+                                💡 اعرض تلميح
+                            </button>
+                            <button 
+                                class="btn btn-outline-secondary flex-grow-1" 
+                                onclick="skipShape()"
+                            >
+                                ⏭️ تخطى
+                            </button>
+                        </div>
+
+                        <!-- التلميح -->
+                        <div id="hintBox" class="alert alert-info d-none mt-3" role="alert">
+                            <strong>💡 تلميح:</strong>
+                            <span id="hintText"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- إحصائيات -->
+                <div class="mt-4 text-center">
+                    <p class="text-muted">
+                        الشكل <strong id="current">0</strong> من <strong id="total">0</strong>
+                    </p>
+                    <div class="progress" style="height: 25px;">
+                        <div 
+                            class="progress-bar bg-success" 
+                            id="progressBar" 
+                            role="progressbar" 
+                            style="width: 0%"
+                        >
+                            <span id="progressText">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أزرار العودة -->
+                <div class="text-center mt-4">
+                    <button 
+                        class="btn btn-secondary btn-lg" 
+                        onclick="location.href='index.html'"
+                    >
+                        🏠 العودة للرئيسية
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
