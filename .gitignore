@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+uploads/*
+!uploads/.gitkeep
+database/*
+!database/.gitkeep
+.env
+.DS_Store
